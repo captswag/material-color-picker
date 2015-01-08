@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ColorPickerActivity">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:id="@+id/colorView"
+        android:layout_weight=".8"
+        android:elevation="2dp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/redToolTip"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18sp"
+            android:textColor="@color/red" />
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/redSeekBar"
+            android:layout_below="@id/redToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/red_progress"
+            android:thumbTint="@color/red"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/greenToolTip"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18sp"
+            android:textColor="@color/green"
+            android:layout_below="@id/redSeekBar" />
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/greenSeekBar"
+            android:layout_below="@id/greenToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/green_progress"
+            android:thumbTint="@color/green" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/blueToolTip"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18sp"
+            android:textColor="@color/blue"
+            android:layout_below="@id/greenSeekBar" />
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/blueSeekBar"
+            android:layout_below="@id/blueToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/blue_progress"
+            android:thumbTint="@color/blue"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/buttonSelector"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textAllCaps="false"
+            android:background="@drawable/back"
+            android:onClick="colorSelect" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/about"
+        android:text="@string/about"
+        android:onClick="showDetails"
+        android:background="@drawable/about_button"
+        style="?android:borderlessButtonStyle"/>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color>
+    <color name="red">#f44336</color>
+    <color name="green">#4caf50</color>
+    <color name="blue">#2196f3</color>
+    <color name="grey">#b3b3b3</color>
+    <color name="dribble">#ea4c89</color>
+    <color name="dribbledark">#c32361</color>
+    <color name="black">#000000</color>
+    <color name="dialogcolor">#009688</color>
+
+</resources>
