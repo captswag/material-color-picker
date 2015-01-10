@@ -7,6 +7,8 @@ Features
 - Uses Android Lollipop's setStatusBarColor() to set color of status bar (Notification bar) which changes with change in color palette
 - Separate UI for portrait and landscape devices
 
+Download the app from playstore: [Material Color Picker](hhttps://play.google.com/store/apps/details?id=com.anjithsasindran.materialcolorpicker)
+
 Portrait
 
 ![portrait](/screenshots/main.jpg)
@@ -14,7 +16,3 @@ Portrait
 Landscape
 
 ![landscape](/screenshots/main_land.jpg)
-
-About
-
-![about](/screenshots/about.jpg)
