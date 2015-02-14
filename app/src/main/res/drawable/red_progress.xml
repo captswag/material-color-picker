@@ -4,9 +4,8 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle" >
 
-            <gradient
-                android:endColor="@color/grey"
-                android:startColor="@color/grey" />
+            <solid
+                android:color="@color/grey" />
 
         </shape>
     </item>
@@ -14,9 +13,8 @@
         <clip>
             <shape android:shape="rectangle" >
 
-                <gradient
-                    android:endColor="@color/red"
-                    android:startColor="@color/red" />
+                <solid
+                    android:color="@color/red" />
 
             </shape>
         </clip>

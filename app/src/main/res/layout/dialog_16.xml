@@ -2,29 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:orientation="vertical"
     android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:orientation="vertical" >
+    android:paddingRight="24dp">
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/developedby"
         android:textSize="16sp"
-        android:paddingTop="16dp"
         android:id="@+id/developer" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <com.wefika.flowlayout.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:gravity="start|top">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/website"
-            android:layout_weight="1"
+            android:textSize="16sp"
             android:text="@string/website"
             android:textColor="@color/dialogcolor"
             style="?android:borderlessButtonStyle" />
@@ -33,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/github"
-            android:layout_weight="1"
+            android:textSize="16sp"
             android:text="@string/github"
             android:textColor="@color/dialogcolor"
             style="?android:borderlessButtonStyle" />
@@ -42,36 +40,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/instagram"
-            android:layout_weight="1"
+            android:textSize="16sp"
             android:text="@string/instagram"
             android:textColor="@color/dialogcolor"
             style="?android:borderlessButtonStyle" />
 
-        </LinearLayout>
+    </com.wefika.flowlayout.FlowLayout>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="12dp"
         android:text="@string/designby"
         android:textSize="16sp"
-        android:paddingTop="16dp"
         android:id="@+id/designer" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/dribbble"
-            android:text="@string/dribbble"
-            android:textColor="@color/dialogcolor"
-            android:layout_weight="1"
-            style="?android:borderlessButtonStyle" />
-
-    </LinearLayout>
+        android:id="@+id/dribbble"
+        android:textSize="16sp"
+        android:text="@string/dribbble"
+        android:textColor="@color/dialogcolor"
+        style="?android:borderlessButtonStyle" />
 
 </LinearLayout>

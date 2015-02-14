@@ -11,8 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:id="@+id/colorView"
-        android:layout_weight="1"
-        android:elevation="2dp" />
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -35,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/redToolTip"
                 android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/red"
                 android:singleLine="true" />
@@ -47,18 +47,19 @@
                 android:max="255"
                 android:maxHeight="3dip"
                 android:minHeight="3dip"
-                android:progressDrawable="@drawable/red_progress"
-                android:thumbTint="@color/red"/>
+                android:thumb="@drawable/red_thumb_drawable"
+                android:progressDrawable="@drawable/red_progress" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/greenToolTip"
                 android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/green"
                 android:layout_below="@id/redSeekBar"
-                android:singleLine="true"  />
+                android:singleLine="true" />
 
             <SeekBar
                 android:layout_width="fill_parent"
@@ -68,14 +69,15 @@
                 android:max="255"
                 android:maxHeight="3dip"
                 android:minHeight="3dip"
-                android:progressDrawable="@drawable/green_progress"
-                android:thumbTint="@color/green" />
+                android:thumb="@drawable/green_thumb_drawable"
+                android:progressDrawable="@drawable/green_progress" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/blueToolTip"
                 android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/blue"
                 android:layout_below="@id/greenSeekBar"
@@ -89,8 +91,8 @@
                 android:max="255"
                 android:maxHeight="3dip"
                 android:minHeight="3dip"
-                android:progressDrawable="@drawable/blue_progress"
-                android:thumbTint="@color/blue"/>
+                android:thumb="@drawable/blue_thumb_drawable"
+                android:progressDrawable="@drawable/blue_progress" />
 
             <Button
                 android:layout_width="150dp"
@@ -101,7 +103,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:textAllCaps="false"
-                android:background="@drawable/color_button"
+                android:background="@drawable/color_button_16"
                 android:onClick="colorSelect" />
 
         </RelativeLayout>
@@ -110,9 +112,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/about"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/about"
+            android:textAllCaps="true"
             android:onClick="showDetails"
-            android:background="@drawable/about_button"
+            android:background="@drawable/about_16"
             style="?android:borderlessButtonStyle"/>
 
     </LinearLayout>

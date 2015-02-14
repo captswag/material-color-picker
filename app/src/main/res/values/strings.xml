@@ -9,5 +9,7 @@
     <string name="website">Website</string>
     <string name="about">About</string>
     <string name="dribbble">Dribbble</string>
+    <string name="developedby">Developed by <b>Anjith Sasindran</b></string>
+    <string name="designby">Design inspired from <b>Lucas Bonomi</b></string>
 
 </resources>
