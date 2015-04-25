@@ -26,10 +26,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.mixpanel.android.mpmetrics.MixpanelAPI;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
 public class ColorPickerActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
+
+    public static final String MIXPANEL_TOKEN = "8df466c6bae9ae3c3117de78e1af819d";
 
     View colorView;
     SeekBar redSeekBar, greenSeekBar, blueSeekBar;
@@ -42,10 +48,15 @@ public class ColorPickerActivity extends Activity implements SeekBar.OnSeekBarCh
     int red, green, blue, seekBarLeft;
     Rect thumbRect;
     AlertDialog alertDialog;
+    MixpanelAPI mixpanel;
+    JSONObject props;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mixpanel = MixpanelAPI.getInstance(this, MIXPANEL_TOKEN);
+        props = new JSONObject();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setContentView(R.layout.layout_color_picker);
@@ -212,6 +223,15 @@ public class ColorPickerActivity extends Activity implements SeekBar.OnSeekBarCh
         clip = ClipData.newPlainText("clip", buttonSelector.getText());
         clipBoard.setPrimaryClip(clip);
 
+        //Mixpanel event tracker
+        try {
+            props.put("Color", buttonSelector.getText());
+        }
+        catch(JSONException e) {
+            e.printStackTrace();
+        }
+        mixpanel.track("Color Selected", props);
+
         Toast.makeText(this, "Color " + buttonSelector.getText() + " copied to clipboard", Toast.LENGTH_SHORT).show();
 
     }
@@ -332,8 +352,10 @@ public class ColorPickerActivity extends Activity implements SeekBar.OnSeekBarCh
     protected void onDestroy() {
         super.onDestroy();
 
-        //Storing values of red, green & blue in SharedPreferences
+        //Manually flushing selected colors to mixpanel server
+        mixpanel.flush();
 
+        //Storing values of red, green & blue in SharedPreferences
         SharedPreferences settings = getSharedPreferences("COLOR_SETTINGS", 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("RED_COLOR", redSeekBar.getProgress());
