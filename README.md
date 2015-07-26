@@ -5,7 +5,6 @@ Features
 - Get Hex & RGB color codes
 - Set color using RGB values and get HEX codes
 - Set colo using HEX value
-- Uses Android Lollipop's setStatusBarColor() to set color of status bar (Notification bar) which changes with change in color palette
 - Separate UI for portrait and landscape devices
 - Support for pre-lollipop devices
 
