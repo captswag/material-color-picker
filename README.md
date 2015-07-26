@@ -17,3 +17,10 @@ Portrait
 Landscape
 
 ![landscape](/screenshots/main_land.jpg)
+
+
+Example app that use Android Material Color Picker Dialog to let users choose the color of the Qr Code:
+
+[![Qr Code Generator](/screenshots/appIcon.png)](http://www.simonepessotto.it/App/QrCodeGeneratorRevolution.apk)
+
+[Qr Code Generator](http://www.simonepessotto.it/App/QrCodeGeneratorRevolution.apk)
