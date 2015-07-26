@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.anjithsasindran.materialcolorpicker"
+        applicationId "com.pes.androidmaterialcolorpickerdialog"
         minSdkVersion 16
-        targetSdkVersion 21
-        versionCode 3
-        versionName "1.5.1"
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
     }
     buildTypes {
         release {
@@ -21,9 +21,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.afollestad:material-dialogs:0.6.2.3'
-    compile 'com.wefika:flowlayout:0.3.0'
-    compile "com.mixpanel.android:mixpanel-android:4.5.3"
-    compile "com.google.android.gms:play-services:6.5.87"
+    compile 'com.android.support:appcompat-v7:22.2.0'
 }
