@@ -86,7 +86,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     /**
      * Simple onCreate function. Here there is the init of the GUI.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState As usual ...
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -208,9 +208,9 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     /**
      * Method called when the user change the value of the bars. This sync the colors.
      *
-     * @param seekBar
-     * @param progress
-     * @param fromUser
+     * @param seekBar SeekBar that has changed
+     * @param progress The new progress value
+     * @param fromUser If it coem from User
      */
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -308,8 +308,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      * From Android Reference: The Color class defines methods for creating and converting color ints.
      * Colors are represented as packed ints, made up of 4 bytes: alpha, red, green, blue.
      * The values are unpremultiplied, meaning any transparency is stored solely in the alpha
-     * component, and not in the color components. The components are stored as follows
-     * (alpha << 24) | (red << 16) | (green << 8) | blue.
+     * component, and not in the color components.
      *
      * @return Selected color as Android Color class value.
      */
