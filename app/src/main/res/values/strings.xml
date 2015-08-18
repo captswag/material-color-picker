@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Android Material Color Picker Dialog</string>
-
-    <string name="descLib">Material Color Picker Dialog</string>
-    <string name="errHex" >Hex Code Format incorrect</string>
-    <string name="action_settings">Settings</string>
-    <string name="inputColor">Color: </string>
-    <string name="btnSelectColor">Select</string>
-</resources>

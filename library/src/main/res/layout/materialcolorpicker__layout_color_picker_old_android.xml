@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ColorPickerActivity">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:id="@+id/colorView" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/materialcolorpicker__activity_horizontal_margin"
+        android:paddingRight="@dimen/materialcolorpicker__activity_horizontal_margin"
+        android:paddingTop="@dimen/materialcolorpicker__activity_vertical_margin"
+        android:paddingBottom="@dimen/materialcolorpicker__activity_vertical_margin">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/redToolTip"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_red_light"
+            android:singleLine="true" />
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/redSeekBar"
+            android:layout_below="@id/redToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:thumb="@drawable/materialcolorpicker__red_thumb_drawable"
+            android:progressDrawable="@drawable/red_progress"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/greenToolTip"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_below="@id/redSeekBar"
+            android:singleLine="true" />
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/greenSeekBar"
+            android:layout_below="@id/greenToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:thumb="@drawable/materialcolorpicker__green_thumb_drawable"
+            android:progressDrawable="@drawable/materialcolorpicker__green_progress" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/blueToolTip"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_below="@id/greenSeekBar"
+            android:singleLine="true" />
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/blueSeekBar"
+            android:layout_below="@id/blueToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:thumb="@drawable/materialcolorpicker__blue_thumb_drawable"
+            android:progressDrawable="@drawable/materialcolorpicker__blue_progress" />
+
+        <EditText
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/codHex"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:background="@drawable/materialcolorpicker__color_button_16"
+            android:layout_below="@+id/blueSeekBar"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:editable="true"
+            android:layout_alignParentStart="true"
+            android:hint="2056df"
+            android:text="123456"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/materialcolorpicker__btnSelectColor"
+            android:id="@+id/okColorButton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignBaseline="@+id/codHex"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#"
+            android:id="@+id/textView"
+            android:layout_alignEnd="@+id/codHex"
+            android:layout_alignParentStart="true"
+            android:layout_alignBaseline="@+id/codHex" />
+    </RelativeLayout>
+
+</LinearLayout>
