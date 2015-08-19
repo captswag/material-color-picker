@@ -43,6 +43,11 @@ dependency in your `build.gradle`.
 
 ### Use the library
 
+Import the class
+```java
+    import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
+```
+
 Create a color picker dialog object
 
 ```java
