@@ -21,6 +21,21 @@ Landscape
 ![landscape](/screenshots/main_land.jpg)
 
 
+## HOW TO USE IT
+
+Android Material Color Picker is now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
+    
+    dependencies {
+        compile 'com.pes.materialcolorpicker:library:1.0.1'
+    }
+
+## Translations
+
+If you would like to help localise this library please fork the project, create and verify your language files, then create a pull request.
+
+
+##Example
+
 Example app that use Android Material Color Picker Dialog to let users choose the color of the Qr Code:
 
 [![Qr Code Generator](/screenshots/appIcon.png)](http://www.simonepessotto.it/App/QrCodeGeneratorRevolution.apk)
