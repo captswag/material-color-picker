@@ -19,3 +19,9 @@ Portrait
 Landscape
 
 ![landscape](/screenshots/main_land.jpg)
+
+#### Author
+**Anjith Sasindran**
+- https://twitter.com/anjithsasindran
+- https://instagram.com/anjithsasindran/
+- https://github.com/4k3R
