@@ -102,7 +102,8 @@
             android:password="false"
             android:imeOptions="actionDone|actionGo|actionSend"
             android:maxLines="1"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:layout_alignParentLeft="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -110,9 +111,10 @@
             android:text="@string/materialcolorpicker__btnSelectColor"
             android:id="@+id/okColorButton"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="false"
+            android:layout_alignParentBottom="true"
             android:layout_alignBaseline="@+id/codHex"
-            android:clickable="true" />
+            android:clickable="true"
+            android:layout_alignParentRight="true" />
 
         <TextView
             android:layout_width="wrap_content"

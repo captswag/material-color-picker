@@ -43,7 +43,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      */
     public ColorPicker(Activity a) {
         super(a);
-        // TODO Auto-generated constructor stub
+
         this.c = a;
         this.red = 0;
         this.green = 0;
@@ -63,7 +63,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      */
     public ColorPicker(Activity a, int r, int g, int b) {
         super(a);
-        // TODO Auto-generated constructor stub
+
         this.c = a;
 
         if(0 <= r && r <=255)
