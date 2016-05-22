@@ -1,0 +1,8 @@
+<resources>
+    <string name="materialcolorpicker__app_name">Dialogue de choix de couleur style Material</string>
+
+    <string name="materialcolorpicker__descLib">Dialogue de choix de couleur</string>
+    <string name="materialcolorpicker__errHex" >Format HEX incorrect</string>
+    <string name="materialcolorpicker__inputColor">Couleur: </string>
+    <string name="materialcolorpicker__btnSelectColor">Selectionner</string>
+</resources>
