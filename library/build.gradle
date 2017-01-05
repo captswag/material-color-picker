@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "22.0.1"
     resourcePrefix "materialcolorpicker__"
 
@@ -12,8 +12,8 @@ android {
 
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
     }
     buildTypes {
         release {
@@ -27,7 +27,7 @@ def siteUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'   
 def gitUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'        // Git repository URL
 group = "com.pes.materialcolorpicker"                                                                  // Maven Group ID for the artifact
 // This is the library version used when deploying the artifact
-version = "1.0.2"
+version = "1.0.3"
 
 install {
     repositories.mavenInstaller {
@@ -65,9 +65,8 @@ install {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
-
 }
 
 

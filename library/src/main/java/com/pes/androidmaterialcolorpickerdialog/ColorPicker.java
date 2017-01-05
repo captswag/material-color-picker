@@ -90,8 +90,9 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setContentView(R.layout.materialcolorpicker__layout_color_picker);
