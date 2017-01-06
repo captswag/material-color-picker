@@ -92,7 +92,8 @@ If you would like to help localise this library please fork the project, create 
 
 Example app that use Android Material Color Picker Dialog to let users choose the color of the Qr Code:
 
-[Qr Code Generator](http://www.simonepessotto.it/App/QrCodeGeneratorRevolution.apk)
+[Qr Code Generator Direct Download](http://www.simonepessotto.it/App/QrCodeGeneratorRevolution.apk)
+[Qr Code Generator Play Store](https://play.google.com/store/apps/details?id=com.pes.qrcodegeneratorv2)
 
 ##LICENSE
 ```
