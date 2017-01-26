@@ -63,7 +63,7 @@ Then show the dialog (when & where you want) and save the selected color
     /* Show color picker dialog */
     cp.show();
     
-    /* On Click listener for the dialog, when the user select the color */
+    /* --- DEPRECATED, se below ---  On Click listener for the dialog, when the user select the color */
     Button okColor = (Button)cp.findViewById(R.id.okColorButton);
         okColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +80,16 @@ Then show the dialog (when & where you want) and save the selected color
                 cp.dismiss();
             }
         });
+    
+    /* Set a new Listener called when user click "select" */
+    cp.setOnColorSelected(new OnColorSelected() {
+        @Override
+        public void returnColor(int col) {
+            Log.d("Red", Integer.toString(Color.red(col)));
+            Log.d("Green", Integer.toString(Color.green(col)));
+            Log.d("Blue", Integer.toString(Color.blue(col)));
+        }
+    });
 ```
 
 That's all :)
