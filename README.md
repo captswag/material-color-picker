@@ -65,21 +65,21 @@ Then show the dialog (when & where you want) and save the selected color
     
     /* --- DEPRECATED, se below ---  On Click listener for the dialog, when the user select the color */
     Button okColor = (Button)cp.findViewById(R.id.okColorButton);
-        okColor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-                /* You can get single channel (value 0-255) */
-                selectedColorR = cp.getRed();
-                selectedColorG = cp.getGreen();
-                selectedColorB = cp.getBlue();
-                
-                /* Or the android RGB Color (see the android Color class reference) */
-                selectedColorRGB = cp.getColor();
+    okColor.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
-                cp.dismiss();
-            }
-        });
+            /* You can get single channel (value 0-255) */
+            selectedColorR = cp.getRed();
+            selectedColorG = cp.getGreen();
+            selectedColorB = cp.getBlue();
+
+            /* Or the android RGB Color (see the android Color class reference) */
+            selectedColorRGB = cp.getColor();
+
+            cp.dismiss();
+        }
+    });
     
     /* Set a new Listener called when user click "select" */
     cp.setOnColorSelected(new OnColorSelected() {
