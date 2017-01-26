@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".ColorPickerActivity">
+    tools:context=".ColorPicker">
 
     <View
         android:layout_width="0dp"
@@ -101,7 +101,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignBaseline="@+id/codHex"
                 android:layout_marginRight="4dp"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignRight="@+id/codHex" />
 
             <EditText
                 android:layout_width="70dp"
@@ -111,7 +113,7 @@
                 android:layout_alignParentBottom="true"
                 android:textAllCaps="false"
                 android:textColor="@color/primary_text_default_material_light"
-                android:textColorHint="@color/hint_foreground_material_light"
+                android:textColorHint="@color/foreground_material_light"
                 android:hint="2c45ff"
                 android:text="123456"
                 android:password="false"
@@ -129,7 +131,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="false"
                 android:layout_alignBaseline="@+id/codHex"
-                android:clickable="true" />
+                android:clickable="true"
+                android:layout_alignParentRight="true" />
 
         </RelativeLayout>
 

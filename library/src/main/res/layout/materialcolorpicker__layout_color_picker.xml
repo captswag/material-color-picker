@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".ColorPickerActivity">
+    tools:context=".ColorPicker">
 
     <View
         android:layout_width="fill_parent"
@@ -92,7 +92,7 @@
             android:layout_alignParentBottom="false"
             android:textAllCaps="false"
             android:textColor="@color/primary_text_default_material_light"
-            android:textColorHint="@color/hint_foreground_material_light"
+            android:textColorHint="@color/foreground_material_light"
             android:layout_below="@+id/blueSeekBar"
             android:layout_marginTop="15dp"
             android:layout_alignParentStart="false"

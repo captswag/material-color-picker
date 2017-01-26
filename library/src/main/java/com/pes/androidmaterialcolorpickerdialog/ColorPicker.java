@@ -7,14 +7,19 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+
+
 
 /**
  * This is the only class of the project. Consist in a costum dialog that show
@@ -26,7 +31,6 @@ import android.widget.TextView;
 public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListener {
 
     public Activity c;
-    public Dialog d;
 
     View colorView;
     SeekBar redSeekBar, greenSeekBar, blueSeekBar;
@@ -36,6 +40,11 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     int seekBarLeft;
     Rect thumbRect;
 
+    private OnColorSelected m_OnColorSelectedListener;
+
+    public void setOnColorSelected(OnColorSelected _listener) {
+        m_OnColorSelectedListener = _listener;
+    }
 
     /**
      * Creator of the class. It will initialize the class with black color as default
@@ -90,7 +99,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
 
@@ -144,7 +153,18 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
                     }
                 });
 
+        final Button okColor = (Button)findViewById(R.id.okColorButton);
+        okColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendColor();
+            }
+        });
+    }
 
+    private void sendColor(){
+        if (m_OnColorSelectedListener != null)
+            m_OnColorSelectedListener.returnColor(Color.rgb(red,green, blue));
     }
 
 
