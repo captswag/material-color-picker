@@ -11,9 +11,9 @@ android {
     defaultConfig {
 
         minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 5
-        versionName "1.0.4"
+        targetSdkVersion 25
+        versionCode 6
+        versionName "1.0.5"
     }
     buildTypes {
         release {
@@ -25,9 +25,9 @@ android {
 
 def siteUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'       // Homepage URL of the library
 def gitUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'        // Git repository URL
-group = "com.pes.materialcolorpicker"                                                                  // Maven Group ID for the artifact
+group = "com.pes.materialcolorpicker"                                               // Maven Group ID for the artifact
 // This is the library version used when deploying the artifact
-version = "1.0.4"
+version = "1.0.5"
 
 install {
     repositories.mavenInstaller {
@@ -66,7 +66,7 @@ install {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
 }
 
 
