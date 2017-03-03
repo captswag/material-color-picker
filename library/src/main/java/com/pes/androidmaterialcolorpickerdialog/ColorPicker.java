@@ -5,12 +5,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -36,15 +33,10 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     SeekBar redSeekBar, greenSeekBar, blueSeekBar;
     TextView redToolTip, greenToolTip, blueToolTip;
     EditText codHex;
-    private int red, green, blue;
     int seekBarLeft;
     Rect thumbRect;
-
+    private int red, green, blue;
     private OnColorSelected m_OnColorSelectedListener;
-
-    public void setOnColorSelected(OnColorSelected _listener) {
-        m_OnColorSelectedListener = _listener;
-    }
 
     /**
      * Creator of the class. It will initialize the class with black color as default
@@ -58,7 +50,6 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         this.green = 0;
         this.blue = 0;
     }
-
 
     /**
      * Creator of the class. It will initialize the class with the rgb color passed as default
@@ -92,6 +83,10 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     }
 
+    public void setOnColorSelected(OnColorSelected _listener) {
+        m_OnColorSelectedListener = _listener;
+    }
+
     /**
      * Simple onCreate function. Here there is the init of the GUI.
      *
@@ -102,12 +97,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setContentView(R.layout.materialcolorpicker__layout_color_picker);
-        } else {
-            setContentView(R.layout.materialcolorpicker__layout_color_picker_old_android);
-        }
+        setContentView(R.layout.materialcolorpicker__layout_color_picker);
 
         colorView = findViewById(R.id.colorView);
 
