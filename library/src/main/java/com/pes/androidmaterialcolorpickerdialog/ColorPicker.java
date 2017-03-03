@@ -17,6 +17,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.assertColorValueInRange;
+import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.formatRgbColorValues;
 import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.leftPadColorValue;
 
 /**
@@ -87,7 +88,6 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.materialcolorpicker__layout_color_picker);
@@ -116,7 +116,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
         colorView.setBackgroundColor(getColor());
 
-        hexCode.setText(String.format("%02x%02x%02x", red, green, blue));
+        hexCode.setText(formatRgbColorValues(red, green, blue));
 
         hexCode.setOnEditorActionListener(
                 new EditText.OnEditorActionListener() {
@@ -157,17 +157,17 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      * @param input HEX Code of the color.
      */
     private void updateColorView(String input) {
-        if (input.matches("-?[0-9a-fA-F]+")) {
-            int color = (int) Long.parseLong(input, 16);
-            red = (color >> 16) & 0xFF;
-            green = (color >> 8) & 0xFF;
-            blue = color & 0xFF;
+        try {
+            final int color = Color.parseColor('#' + input);
+            red = Color.red(color);
+            green = Color.green(color);
+            blue = Color.blue(color);
 
-            colorView.setBackgroundColor(Color.rgb(red, green, blue));
+            colorView.setBackgroundColor(getColor());
             redSeekBar.setProgress(red);
             greenSeekBar.setProgress(green);
             blueSeekBar.setProgress(blue);
-        } else {
+        } catch (IllegalArgumentException ignored) {
             hexCode.setError(activity.getResources().getText(R.string.materialcolorpicker__errHex));
         }
     }
@@ -232,7 +232,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         colorView.setBackgroundColor(getColor());
 
         //Setting the inputText hex color
-        hexCode.setText(String.format("%02x%02x%02x", red, green, blue));
+        hexCode.setText(formatRgbColorValues(red, green, blue));
 
     }
 

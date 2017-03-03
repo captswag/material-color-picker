@@ -3,6 +3,7 @@ package com.pes.androidmaterialcolorpickerdialog;
 import junit.framework.TestCase;
 
 import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.assertColorValueInRange;
+import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.formatRgbColorValues;
 import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.leftPadColorValue;
 
 /**
@@ -35,5 +36,14 @@ public class ColorFormatHelperTest extends TestCase {
         assertEquals("  1", leftPadColorValue(1));
         assertEquals(" 10", leftPadColorValue(10));
         assertEquals("100", leftPadColorValue(100));
+    }
+
+    public void testFormatRgbColorValues() throws Exception {
+        assertEquals("9ACD32", formatRgbColorValues(154, 205, 50));
+        assertEquals("000000", formatRgbColorValues(0, 0, 0));
+        assertEquals("FFFFFF", formatRgbColorValues(255, 255, 255));
+
+        assertEquals("000000", formatRgbColorValues(256, -123, Integer.MAX_VALUE));
+        assertEquals("00FF00", formatRgbColorValues(256, 255, 256));
     }
 }
