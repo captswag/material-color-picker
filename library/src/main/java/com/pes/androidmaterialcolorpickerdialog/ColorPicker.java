@@ -15,37 +15,34 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-
-
-
 /**
  * This is the only class of the project. Consist in a costum dialog that show
  * the GUI for choose the color.
  *
  * @author Simone Pessotto
- *
  */
 public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListener {
 
-    public Activity c;
+    private Activity activity;
 
-    View colorView;
-    SeekBar redSeekBar, greenSeekBar, blueSeekBar;
-    TextView redToolTip, greenToolTip, blueToolTip;
-    EditText codHex;
-    int seekBarLeft;
-    Rect thumbRect;
+    private View colorView;
+    private SeekBar redSeekBar, greenSeekBar, blueSeekBar;
+    private TextView redToolTip, greenToolTip, blueToolTip;
+    private EditText hexCode;
+    private int seekBarLeft;
+    private Rect thumbRect;
     private int red, green, blue;
-    private OnColorSelected m_OnColorSelectedListener;
+    private OnColorSelected onColorSelectedListener;
 
     /**
      * Creator of the class. It will initialize the class with black color as default
-     * @param a The reference to the activity where the color picker is called
+     *
+     * @param activity The reference to the activity where the color picker is called
      */
-    public ColorPicker(Activity a) {
-        super(a);
+    public ColorPicker(Activity activity) {
+        super(activity);
 
-        this.c = a;
+        this.activity = activity;
         this.red = 0;
         this.green = 0;
         this.blue = 0;
@@ -54,37 +51,37 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     /**
      * Creator of the class. It will initialize the class with the rgb color passed as default
      *
-     * @param a The reference to the activity where the color picker is called
-     * @param r Red color for RGB values (0 - 255)
-     * @param g Green color for RGB values (0 - 255)
-     * @param b Blue color for RGB values (0 - 255)
-     *
-     * If the value of the colors it's not in the right range (0 - 255) it will be place at 0.
+     * @param activity The reference to the activity where the color picker is called
+     * @param red      Red color for RGB values (0 - 255)
+     * @param green    Green color for RGB values (0 - 255)
+     * @param blue     Blue color for RGB values (0 - 255)
+     *                 <p>
+     *                 If the value of the colors it's not in the right range (0 - 255) it will be place at 0.
      */
-    public ColorPicker(Activity a, int r, int g, int b) {
-        super(a);
+    public ColorPicker(Activity activity, int red, int green, int blue) {
+        super(activity);
 
-        this.c = a;
+        this.activity = activity;
 
-        if(0 <= r && r <=255)
-            this.red = r;
+        if (0 <= red && red <= 255)
+            this.red = red;
         else
             this.red = 0;
 
-        if(0 <= r && r <=255)
-            this.green = g;
+        if (0 <= red && red <= 255)
+            this.green = green;
         else
             this.green = 0;
 
-        if(0 <= r && r <=255)
-            this.blue = b;
+        if (0 <= red && red <= 255)
+            this.blue = blue;
         else
             this.green = 0;
 
     }
 
-    public void setOnColorSelected(OnColorSelected _listener) {
-        m_OnColorSelectedListener = _listener;
+    public void setOnColorSelected(OnColorSelected listener) {
+        onColorSelectedListener = listener;
     }
 
     /**
@@ -101,17 +98,17 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
         colorView = findViewById(R.id.colorView);
 
-        redSeekBar = (SeekBar)findViewById(R.id.redSeekBar);
-        greenSeekBar = (SeekBar)findViewById(R.id.greenSeekBar);
-        blueSeekBar = (SeekBar)findViewById(R.id.blueSeekBar);
+        redSeekBar = (SeekBar) findViewById(R.id.redSeekBar);
+        greenSeekBar = (SeekBar) findViewById(R.id.greenSeekBar);
+        blueSeekBar = (SeekBar) findViewById(R.id.blueSeekBar);
 
         seekBarLeft = redSeekBar.getPaddingLeft();
 
-        redToolTip = (TextView)findViewById(R.id.redToolTip);
-        greenToolTip = (TextView)findViewById(R.id.greenToolTip);
-        blueToolTip = (TextView)findViewById(R.id.blueToolTip);
+        redToolTip = (TextView) findViewById(R.id.redToolTip);
+        greenToolTip = (TextView) findViewById(R.id.greenToolTip);
+        blueToolTip = (TextView) findViewById(R.id.blueToolTip);
 
-        codHex = (EditText)findViewById(R.id.codHex);
+        hexCode = (EditText) findViewById(R.id.codHex);
 
         redSeekBar.setOnSeekBarChangeListener(this);
         greenSeekBar.setOnSeekBarChangeListener(this);
@@ -123,9 +120,9 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
         colorView.setBackgroundColor(Color.rgb(red, green, blue));
 
-        codHex.setText(String.format("%02x%02x%02x", red, green, blue));
+        hexCode.setText(String.format("%02x%02x%02x", red, green, blue));
 
-        codHex.setOnEditorActionListener(
+        hexCode.setOnEditorActionListener(
                 new EditText.OnEditorActionListener() {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -134,8 +131,8 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
                                 event.getAction() == KeyEvent.ACTION_DOWN &&
                                         event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                             updateColorView(v.getText().toString());
-                            InputMethodManager imm = (InputMethodManager) c.getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.hideSoftInputFromWindow(codHex.getWindowToken(), 0);
+                            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(hexCode.getWindowToken(), 0);
 
                             return true;
                         }
@@ -143,7 +140,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
                     }
                 });
 
-        final Button okColor = (Button)findViewById(R.id.okColorButton);
+        final Button okColor = (Button) findViewById(R.id.okColorButton);
         okColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,20 +149,20 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         });
     }
 
-    private void sendColor(){
-        if (m_OnColorSelectedListener != null)
-            m_OnColorSelectedListener.returnColor(Color.rgb(red,green, blue));
+    private void sendColor() {
+        if (onColorSelectedListener != null)
+            onColorSelectedListener.returnColor(Color.rgb(red, green, blue));
     }
 
 
     /**
      * Method that syncrhonize the color between the bars, the view and the HEC code text.
      *
-     * @param s HEX Code of the color.
+     * @param input HEX Code of the color.
      */
-    private void updateColorView(String s) {
-        if(s.matches("-?[0-9a-fA-F]+")){
-            int color = (int)Long.parseLong(s, 16);
+    private void updateColorView(String input) {
+        if (input.matches("-?[0-9a-fA-F]+")) {
+            int color = (int) Long.parseLong(input, 16);
             red = (color >> 16) & 0xFF;
             green = (color >> 8) & 0xFF;
             blue = (color >> 0) & 0xFF;
@@ -174,52 +171,51 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
             redSeekBar.setProgress(red);
             greenSeekBar.setProgress(green);
             blueSeekBar.setProgress(blue);
-        }
-        else{
-            codHex.setError(c.getResources().getText(R.string.materialcolorpicker__errHex));
+        } else {
+            hexCode.setError(activity.getResources().getText(R.string.materialcolorpicker__errHex));
         }
     }
 
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus){
+    public void onWindowFocusChanged(boolean hasFocus) {
 
         thumbRect = redSeekBar.getThumb().getBounds();
 
         redToolTip.setX(seekBarLeft + thumbRect.left);
-        if (red<10)
-            redToolTip.setText("  "+red);
-        else if (red<100)
-            redToolTip.setText(" "+red);
+        if (red < 10)
+            redToolTip.setText("  " + red);
+        else if (red < 100)
+            redToolTip.setText(" " + red);
         else
-            redToolTip.setText(red+"");
+            redToolTip.setText(red + "");
 
         thumbRect = greenSeekBar.getThumb().getBounds();
 
         greenToolTip.setX(seekBarLeft + thumbRect.left);
-        if (green<10)
-            greenToolTip.setText("  "+green);
-        else if (red<100)
-            greenToolTip.setText(" "+green);
+        if (green < 10)
+            greenToolTip.setText("  " + green);
+        else if (red < 100)
+            greenToolTip.setText(" " + green);
         else
-            greenToolTip.setText(green+"");
+            greenToolTip.setText(green + "");
 
         thumbRect = blueSeekBar.getThumb().getBounds();
 
         blueToolTip.setX(seekBarLeft + thumbRect.left);
-        if (blue<10)
-            blueToolTip.setText("  "+blue);
-        else if (blue<100)
-            blueToolTip.setText(" "+blue);
+        if (blue < 10)
+            blueToolTip.setText("  " + blue);
+        else if (blue < 100)
+            blueToolTip.setText(" " + blue);
         else
-            blueToolTip.setText(blue+"");
+            blueToolTip.setText(blue + "");
 
     }
 
     /**
      * Method called when the user change the value of the bars. This sync the colors.
      *
-     * @param seekBar SeekBar that has changed
+     * @param seekBar  SeekBar that has changed
      * @param progress The new progress value
      * @param fromUser If it coem from User
      */
@@ -233,47 +229,45 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
             redToolTip.setX(seekBarLeft + thumbRect.left);
 
-            if (progress<10)
+            if (progress < 10)
                 redToolTip.setText("  " + red);
-            else if (progress<100)
-                redToolTip.setText(" "+red);
+            else if (progress < 100)
+                redToolTip.setText(" " + red);
             else
-                redToolTip.setText(red+"");
+                redToolTip.setText(red + "");
 
-        }
-        else if (seekBar.getId() == R.id.greenSeekBar) {
+        } else if (seekBar.getId() == R.id.greenSeekBar) {
 
             green = progress;
             thumbRect = seekBar.getThumb().getBounds();
 
-            greenToolTip.setX(seekBar.getPaddingLeft()+thumbRect.left);
-            if (progress<10)
-                greenToolTip.setText("  "+green);
-            else if (progress<100)
-                greenToolTip.setText(" "+green);
+            greenToolTip.setX(seekBar.getPaddingLeft() + thumbRect.left);
+            if (progress < 10)
+                greenToolTip.setText("  " + green);
+            else if (progress < 100)
+                greenToolTip.setText(" " + green);
             else
-                greenToolTip.setText(green+"");
+                greenToolTip.setText(green + "");
 
-        }
-        else if (seekBar.getId() == R.id.blueSeekBar) {
+        } else if (seekBar.getId() == R.id.blueSeekBar) {
 
             blue = progress;
             thumbRect = seekBar.getThumb().getBounds();
 
             blueToolTip.setX(seekBarLeft + thumbRect.left);
-            if (progress<10)
-                blueToolTip.setText("  "+blue);
-            else if (progress<100)
-                blueToolTip.setText(" "+blue);
+            if (progress < 10)
+                blueToolTip.setText("  " + blue);
+            else if (progress < 100)
+                blueToolTip.setText(" " + blue);
             else
-                blueToolTip.setText(blue+"");
+                blueToolTip.setText(blue + "");
 
         }
 
         colorView.setBackgroundColor(Color.rgb(red, green, blue));
 
         //Setting the inputText hex color
-        codHex.setText(String.format("%02x%02x%02x", red, green, blue));
+        hexCode.setText(String.format("%02x%02x%02x", red, green, blue));
 
     }
 
@@ -290,6 +284,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     /**
      * Getter for the RED value of the RGB selected color
+     *
      * @return RED Value Integer (0 - 255)
      */
     public int getRed() {
@@ -298,6 +293,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     /**
      * Getter for the GREEN value of the RGB selected color
+     *
      * @return GREEN Value Integer (0 - 255)
      */
     public int getGreen() {
@@ -307,6 +303,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     /**
      * Getter for the BLUE value of the RGB selected color
+     *
      * @return BLUE Value Integer (0 - 255)
      */
     public int getBlue() {
@@ -315,7 +312,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     /**
      * Getter for the color as Android Color class value.
-     *
+     * <p>
      * From Android Reference: The Color class defines methods for creating and converting color ints.
      * Colors are represented as packed ints, made up of 4 bytes: alpha, red, green, blue.
      * The values are unpremultiplied, meaning any transparency is stored solely in the alpha
@@ -323,7 +320,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      *
      * @return Selected color as Android Color class value.
      */
-    public int getColor(){
-        return Color.rgb(red,green, blue);
+    public int getColor() {
+        return Color.rgb(red, green, blue);
     }
 }
