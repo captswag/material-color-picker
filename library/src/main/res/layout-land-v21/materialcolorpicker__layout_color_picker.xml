@@ -14,129 +14,120 @@
         android:layout_weight="1"
         android:elevation="2dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/materialcolorpicker__white"
-        android:orientation="vertical">
+        android:paddingBottom="@dimen/materialcolorpicker__activity_vertical_margin"
+        android:paddingLeft="@dimen/materialcolorpicker__activity_horizontal_margin"
+        android:paddingRight="@dimen/materialcolorpicker__activity_horizontal_margin"
+        android:paddingTop="@dimen/materialcolorpicker__activity_vertical_margin">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingBottom="@dimen/materialcolorpicker__activity_vertical_margin"
-            android:paddingLeft="@dimen/materialcolorpicker__activity_horizontal_margin"
-            android:paddingRight="@dimen/materialcolorpicker__activity_horizontal_margin"
-            android:paddingTop="@dimen/materialcolorpicker__activity_vertical_margin">
+        <TextView
+            android:id="@+id/redToolTip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/materialcolorpicker__red"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/redToolTip"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:singleLine="true"
-                android:textColor="@color/materialcolorpicker__red"
-                android:textSize="16sp" />
+        <SeekBar
+            android:id="@+id/redSeekBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/redToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/materialcolorpicker__red_progress"
+            android:thumbTint="@color/materialcolorpicker__red" />
 
-            <SeekBar
-                android:id="@+id/redSeekBar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/redToolTip"
-                android:max="255"
-                android:maxHeight="3dip"
-                android:minHeight="3dip"
-                android:progressDrawable="@drawable/red_progress"
-                android:thumbTint="@color/materialcolorpicker__red" />
+        <TextView
+            android:id="@+id/greenToolTip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/redSeekBar"
+            android:fontFamily="sans-serif-medium"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/materialcolorpicker__green"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/greenToolTip"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/redSeekBar"
-                android:fontFamily="sans-serif-medium"
-                android:singleLine="true"
-                android:textColor="@color/materialcolorpicker__green"
-                android:textSize="16sp" />
+        <SeekBar
+            android:id="@+id/greenSeekBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/greenToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/materialcolorpicker__green_progress"
+            android:thumbTint="@color/materialcolorpicker__green" />
 
-            <SeekBar
-                android:id="@+id/greenSeekBar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/greenToolTip"
-                android:max="255"
-                android:maxHeight="3dip"
-                android:minHeight="3dip"
-                android:progressDrawable="@drawable/materialcolorpicker__green_progress"
-                android:thumbTint="@color/materialcolorpicker__green" />
+        <TextView
+            android:id="@+id/blueToolTip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/greenSeekBar"
+            android:fontFamily="sans-serif-medium"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/materialcolorpicker__blue"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/blueToolTip"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/greenSeekBar"
-                android:fontFamily="sans-serif-medium"
-                android:singleLine="true"
-                android:textColor="@color/materialcolorpicker__blue"
-                android:textSize="16sp" />
+        <SeekBar
+            android:id="@+id/blueSeekBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/blueToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/materialcolorpicker__blue_progress"
+            android:thumbTint="@color/materialcolorpicker__blue" />
 
-            <SeekBar
-                android:id="@+id/blueSeekBar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/blueToolTip"
-                android:max="255"
-                android:maxHeight="3dip"
-                android:minHeight="3dip"
-                android:progressDrawable="@drawable/materialcolorpicker__blue_progress"
-                android:thumbTint="@color/materialcolorpicker__blue" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/codHex"
+            android:layout_alignEnd="@+id/codHex"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="4dp"
+            android:labelFor="@id/codHex"
+            android:text="@string/materialcolorpicker__hash"
+            android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/codHex"
-                android:layout_alignEnd="@+id/codHex"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/codHex"
-                android:layout_marginRight="4dp"
-                android:text="#"
-                android:textSize="18dp" />
+        <EditText
+            android:id="@id/codHex"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="false"
+            android:layout_marginStart="8dp"
+            android:imeOptions="actionDone|actionGo|actionSend"
+            android:inputType="textCapCharacters"
+            android:lines="1"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:textAllCaps="false"
+            android:textColor="@android:color/primary_text_light"
+            android:textColorHint="@android:color/primary_text_light"
+            android:textSize="18sp"
+            tools:text="123456" />
 
-            <EditText
-                android:id="@+id/codHex"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="false"
-                android:layout_marginLeft="8dp"
-                android:hint="2c45ff"
-                android:imeOptions="actionDone|actionGo|actionSend"
-                android:maxLines="1"
-                android:password="false"
-                android:singleLine="true"
-                android:text="123456"
-                android:textAllCaps="false"
-                android:textColor="@color/primary_text_default_material_light"
-                android:textColorHint="@color/foreground_material_light"
-                android:textSize="18sp" />
+        <Button
+            android:id="@+id/okColorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/codHex"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:text="@string/materialcolorpicker__btnSelectColor" />
 
-            <Button
-                android:id="@+id/okColorButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/codHex"
-                android:layout_alignParentBottom="false"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:clickable="true"
-                android:text="@string/materialcolorpicker__btnSelectColor" />
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".ColorPickerActivity">
+    tools:context=".ColorPicker">
 
     <View
         android:id="@+id/colorView"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="100dp" />
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:paddingBottom="@dimen/materialcolorpicker__activity_vertical_margin"
@@ -23,39 +23,41 @@
 
         <TextView
             android:id="@+id/redToolTip"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:singleLine="true"
+            android:lines="1"
+            android:maxLines="1"
             android:textColor="@android:color/holo_red_light"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <SeekBar
             android:id="@+id/redSeekBar"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/redToolTip"
             android:max="255"
             android:maxHeight="3dip"
             android:minHeight="3dip"
-            android:progressDrawable="@drawable/red_progress"
+            android:progressDrawable="@drawable/materialcolorpicker__red_progress"
             android:thumb="@drawable/materialcolorpicker__red_thumb_drawable" />
 
         <TextView
             android:id="@+id/greenToolTip"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/redSeekBar"
             android:fontFamily="sans-serif-medium"
-            android:singleLine="true"
+            android:lines="1"
+            android:maxLines="1"
             android:textColor="@android:color/holo_green_light"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <SeekBar
             android:id="@+id/greenSeekBar"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/greenToolTip"
             android:max="255"
@@ -66,18 +68,19 @@
 
         <TextView
             android:id="@+id/blueToolTip"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/greenSeekBar"
             android:fontFamily="sans-serif-medium"
-            android:singleLine="true"
+            android:lines="1"
+            android:maxLines="1"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <SeekBar
             android:id="@+id/blueSeekBar"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/blueToolTip"
             android:max="255"
@@ -95,21 +98,24 @@
             android:layout_below="@+id/blueSeekBar"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/materialcolorpicker__color_button_16"
             android:clickable="true"
-            android:editable="true"
             android:fontFamily="sans-serif-condensed"
-            android:hint="2056df"
-            android:text="123456"
+            android:inputType="textCapCharacters"
+            android:lines="1"
+            android:maxLength="6"
+            android:maxLines="1"
             android:textAllCaps="false"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="123456" />
 
         <Button
             android:id="@+id/okColorButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/codHex"
+            android:layout_alignBaseline="@id/codHex"
             android:layout_alignParentBottom="false"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -120,10 +126,13 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/codHex"
-            android:layout_alignEnd="@+id/codHex"
+            android:layout_alignBaseline="@id/codHex"
+            android:layout_alignEnd="@id/codHex"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:text="#" />
+            android:layout_alignRight="@id/codHex"
+            android:labelFor="@id/codHex"
+            android:text="@string/materialcolorpicker__hash" />
     </RelativeLayout>
 
 </LinearLayout>
