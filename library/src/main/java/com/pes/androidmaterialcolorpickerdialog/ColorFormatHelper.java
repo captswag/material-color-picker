@@ -36,7 +36,7 @@ final class ColorFormatHelper {
      * @param blue  Blue color value
      * @return HEX String containing the three values
      */
-    static String formatRgbColorValues(
+    static String formatColorValues(
             @IntRange(from = 0, to = 255) int red,
             @IntRange(from = 0, to = 255) int green,
             @IntRange(from = 0, to = 255) int blue) {
@@ -47,5 +47,31 @@ final class ColorFormatHelper {
                 assertColorValueInRange(blue)
         );
     }
+
+    /**
+     * Formats individual ARGB values to be output as an 8 character HEX string.
+     * <p>
+     * Beware: If any value is lower than 0 or higher than 255, it's reset to 0.
+     *
+     * @param alpha Alpha value
+     * @param red   Red color value
+     * @param green Green color value
+     * @param blue  Blue color value
+     * @return HEX String containing the three values
+     */
+    static String formatColorValues(
+            @IntRange(from = 0, to = 255) int alpha,
+            @IntRange(from = 0, to = 255) int red,
+            @IntRange(from = 0, to = 255) int green,
+            @IntRange(from = 0, to = 255) int blue) {
+
+        return String.format("%02X%02X%02X%02X",
+                assertColorValueInRange(alpha),
+                assertColorValueInRange(red),
+                assertColorValueInRange(green),
+                assertColorValueInRange(blue)
+        );
+    }
+
 
 }

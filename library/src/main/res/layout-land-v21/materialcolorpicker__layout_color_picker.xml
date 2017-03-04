@@ -24,9 +24,31 @@
         android:paddingTop="@dimen/materialcolorpicker__activity_vertical_margin">
 
         <TextView
+            android:id="@+id/alphaToolTip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/materialcolorpicker__black"
+            android:textSize="18sp"/>
+
+        <SeekBar
+            android:id="@+id/alphaSeekBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alphaToolTip"
+            android:max="255"
+            android:maxHeight="3dip"
+            android:minHeight="3dip"
+            android:progressDrawable="@drawable/materialcolorpicker__alpha_progress"
+            android:thumbTint="@android:color/black"/>
+
+        <TextView
             android:id="@+id/redToolTip"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/alphaSeekBar"
             android:fontFamily="sans-serif-medium"
             android:lines="1"
             android:maxLines="1"
@@ -92,16 +114,16 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_alignBaseline="@+id/codHex"
-            android:layout_alignEnd="@+id/codHex"
+            android:layout_alignBaseline="@+id/hexCode"
+            android:layout_alignEnd="@+id/hexCode"
             android:layout_alignParentStart="true"
             android:layout_marginEnd="4dp"
-            android:labelFor="@id/codHex"
+            android:labelFor="@id/hexCode"
             android:text="@string/materialcolorpicker__hash"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@id/codHex"
+            android:id="@id/hexCode"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_alignParentBottom="true"
@@ -123,7 +145,7 @@
             android:id="@+id/okColorButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_alignBaseline="@+id/codHex"
+            android:layout_alignBaseline="@+id/hexCode"
             android:layout_alignParentBottom="false"
             android:layout_alignParentEnd="true"
             android:clickable="true"

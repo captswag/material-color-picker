@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final ColorPicker cp = new ColorPicker(MainActivity.this, 127, 123, 67);
+        final ColorPicker cp = new ColorPicker(MainActivity.this, 255, 127, 123, 67);
 
         setContentView(R.layout.activity_main);
 
