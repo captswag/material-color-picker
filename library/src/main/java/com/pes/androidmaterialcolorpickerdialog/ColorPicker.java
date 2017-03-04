@@ -35,7 +35,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     private SeekBar alphaSeekBar, redSeekBar, greenSeekBar, blueSeekBar;
     private EditText hexCode;
     private int alpha, red, green, blue;
-    private OnColorSelected onColorSelectedListener;
+    private ColorPickerCallback callback;
 
     private boolean withAlpha;
 
@@ -48,6 +48,10 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         super(activity);
 
         this.activity = activity;
+
+        if (activity instanceof ColorPickerCallback) {
+            callback = (ColorPickerCallback) activity;
+        }
 
         this.alpha = 255;
         this.red = 0;
@@ -91,6 +95,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      *                 <p>
      *                 If the value of the colors it's not in the right range (0 - 255) it will
      *                 be place at 0.
+     * @since v1.1.0
      */
     public ColorPicker(Activity activity,
                        @IntRange(from = 0, to = 255) int alpha,
@@ -108,8 +113,8 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     }
 
-    public void setOnColorSelected(OnColorSelected listener) {
-        onColorSelectedListener = listener;
+    public void setCallback(ColorPickerCallback listener) {
+        callback = listener;
     }
 
     /**
@@ -187,8 +192,8 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     }
 
     private void sendColor() {
-        if (onColorSelectedListener != null)
-            onColorSelectedListener.returnColor(getColor());
+        if (callback != null)
+            callback.onColorChosen(getColor());
     }
 
     /**
@@ -265,6 +270,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      * Getter for the ALPHA value of the ARGB selected color
      *
      * @return ALPHA Value Integer (0 - 255)
+     * @since v1.1.0
      */
     public int getAlpha() {
         return alpha;

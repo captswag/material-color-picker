@@ -4,9 +4,9 @@
 A simple, minimalistic and beautiful dialog color picker for Android 4.1+ devices. This color picker is easy-to-use and easy-to-integrate in your application to let users of your app choose color in a simple way.
 
 Features
-- Get Hex & RGB color codes
-- Set color using RGB values and get HEX codes
-- Set colo using HEX value
+- Get Hex and (A)RGB color codes
+- Set color using (A)RGB values and get HEX codes
+- Set color using HEX value
 - Separate UI for portrait and landscape devices
 - Support for pre-lollipop devices
 
@@ -37,7 +37,7 @@ dependency in your `build.gradle`.
 (module)
 ```groovy    
     dependencies {
-        compile 'com.pes.materialcolorpicker:library:1.0.+'
+        compile 'com.pes.materialcolorpicker:library:1.1.+'
     }
 ```
 
@@ -54,45 +54,42 @@ Create a color picker dialog object
     final ColorPicker cp = new ColorPicker(MainActivity.this, defaultColorR, defaultColorG, defaultColorB);
 ```
 
-defaultColorR, defaultColorG, defaultColorB are 3 integer ( value 0-255) for the initialization of the color picker with your custom color value. If you don't want to start with a color set them to 0 or use only the first argument
+defaultColorR, defaultColorG, defaultColorB are 3 integer (value 0-255) for the initialization of the color picker with your custom color value. If you don't want to start with a color set them to 0 or use only the first argument.
 
-Then show the dialog (when & where you want) and save the selected color
+The library also supports alpha values. If no color or only red, green, and blue are specified, the alpha value is set to 255 (0xFF) and no slider is shown.
+
+Use the following constructor to specify an alternative alpha channel value (0..255). As soon as the alpha value constructor is used, a fourth slider will appear above the RGB sliders and the text input field will change from six HEX characters to eight.
+
+```java
+    final ColorPicker cp = new ColorPicker(MainActivity.this, defaultAlphaValue, defaultColorR, defaultColorG, defaultColorB);
+```
+
+
+Then show the dialog (when and where you want) and save the selected color
 
 ```java
 
     /* Show color picker dialog */
     cp.show();
     
-    /* --- DEPRECATED, se below ---  On Click listener for the dialog, when the user select the color */
-    Button okColor = (Button)cp.findViewById(R.id.okColorButton);
-    okColor.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            /* You can get single channel (value 0-255) */
-            selectedColorR = cp.getRed();
-            selectedColorG = cp.getGreen();
-            selectedColorB = cp.getBlue();
-
-            /* Or the android RGB Color (see the android Color class reference) */
-            selectedColorRGB = cp.getColor();
-
-            cp.dismiss();
-        }
-    });
-    
     /* Set a new Listener called when user click "select" */
-    cp.setOnColorSelected(new OnColorSelected() {
+    cp.setCallback(new ColorPickerCallback() {
         @Override
-        public void returnColor(int col) {
-            Log.d("Red", Integer.toString(Color.red(col)));
-            Log.d("Green", Integer.toString(Color.green(col)));
-            Log.d("Blue", Integer.toString(Color.blue(col)));
+        public void onColorChosen(@ColorInt int color) {
+            // Do whatever you want
         }
     });
 ```
 
 That's all :)
+
+### Transition from v1.0 to v1.1
+
+Version 1.1 introduced some API changes---mainly a renaming of the `OnColorSelected` callback interface. This has been renamed to `ColorPickerCallback`.
+
+The old interface is still in the library but will be removed in the next version update. It has been marked as deprecated and isn't called by the library, therefore no values will appear in your app if you still rely on the old interface.
+ 
+
 ## Translations
 
 If you would like to help localise this library please fork the project, create and verify your language files, then create a pull request.
@@ -110,7 +107,7 @@ Example app that use Android Material Color Picker Dialog to let users choose th
 ```
 The MIT License (MIT)
 
-Copyright (c) 2016 Simone Pessotto (http://www.simonepessotto.it)
+Copyright (c) 2017 Simone Pessotto (http://www.simonepessotto.it)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,20 +3,27 @@ package com.pes.test;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
 
 import com.pes.androidmaterialcolorpickerdialog.ColorPicker;
-import com.pes.androidmaterialcolorpickerdialog.OnColorSelected;
+import com.pes.androidmaterialcolorpickerdialog.ColorPickerCallback;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements ColorPickerCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final ColorPicker cp = new ColorPicker(MainActivity.this, 255, 127, 123, 67);
+        final ColorPicker colorPicker = new ColorPicker(
+                MainActivity.this, // Context
+                255, // Default Alpha value
+                127, // Default Red value
+                123, // Default Green value
+                67 // Default Blue value
+        );
 
         setContentView(R.layout.activity_main);
 
@@ -24,35 +31,34 @@ public class MainActivity extends Activity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                cp.show();
-                /*final Button okColor = (Button)cp.findViewById(R.id.okColorButton);
-
-                okColor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-
-                        Log.d("Red", Integer.toString(cp.getRed()));
-                        Log.d("Green", Integer.toString(cp.getGreen()));
-                        Log.d("Blue", Integer.toString(cp.getBlue()));
-
-                        cp.dismiss();
-                    }
-                });*/
-
+                colorPicker.show();
             }
         });
 
-        cp.setOnColorSelected(new OnColorSelected() {
+        /* One way to get values from the Color Picker is to implement the Callback as an
+        anonymous inner class. The setCallback method may also be used with "this" if the class
+        implements the Callback (see below).
+         */
+        colorPicker.setCallback(new ColorPickerCallback() {
             @Override
-            public void returnColor(int col) {
-                Log.d("Red", Integer.toString(Color.red(col)));
-                Log.d("Green", Integer.toString(Color.green(col)));
-                Log.d("Blue", Integer.toString(Color.blue(col)));
+            public void onColorChosen(@ColorInt int color) {
+                // Do whatever you want
             }
         });
 
+    }
 
+    /**
+     * One way to get values from the Color Picker is by implementing the
+     * {@link ColorPickerCallback} on a class level, as can be seen here.
+     *
+     * @param color Color chosen
+     */
+    @Override
+    public void onColorChosen(@ColorInt int color) {
+        Log.d("Alpha", Integer.toString(Color.alpha(color)));
+        Log.d("Red", Integer.toString(Color.red(color)));
+        Log.d("Green", Integer.toString(Color.green(color)));
+        Log.d("Blue", Integer.toString(Color.blue(color)));
     }
 }

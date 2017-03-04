@@ -46,6 +46,7 @@ final class ColorFormatHelper {
      * @param green Green color value
      * @param blue  Blue color value
      * @return HEX String containing the three values
+     * @since v1.1.0
      */
     static String formatColorValues(
             @IntRange(from = 0, to = 255) int alpha,

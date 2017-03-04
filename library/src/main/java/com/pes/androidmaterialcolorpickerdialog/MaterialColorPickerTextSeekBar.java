@@ -17,6 +17,7 @@ import android.util.TypedValue;
  * Created by Patrick Geselbracht on 2017-03-04
  *
  * @author Patrick Geselbracht <github@pattafeufeu.de>
+ * @since v1.1.0
  */
 class MaterialColorPickerTextSeekBar extends AppCompatSeekBar {
 
