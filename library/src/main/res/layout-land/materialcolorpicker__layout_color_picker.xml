@@ -101,7 +101,6 @@
             android:maxLines="1"
             android:paddingEnd="4dp"
             android:paddingStart="4dp"
-            android:textAllCaps="false"
             android:textColor="@android:color/primary_text_light"
             android:textColorHint="@android:color/primary_text_light"
             android:textSize="18sp"

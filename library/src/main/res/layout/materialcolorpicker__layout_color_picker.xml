@@ -93,7 +93,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:clickable="true"
-            android:fontFamily="sans-serif-condensed"
             android:inputType="textCapCharacters|textNoSuggestions"
             android:lines="1"
             android:maxLength="6"
