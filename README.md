@@ -14,11 +14,13 @@ Design inspired from [Dribbble](https://dribbble.com/shots/1858968-Material-Desi
 
 Portrait
 
-![portrait](/screenshots/main.jpg)
+![Portrait RGB](screenshots/main_portrait_rgb.png)
+![Portrait ARGB](screenshots/main_portrait_argb.png)
 
 Landscape
 
-![landscape](/screenshots/main_land.jpg)
+![Landscape RGB](screenshots/main_landscape_rgb.png)
+![Landscape ARGB](screenshots/main_landscape_argb.png)
 
 
 ## HOW TO USE IT
@@ -68,7 +70,6 @@ Use the following constructor to specify an alternative alpha channel value (0..
 Then show the dialog (when and where you want) and save the selected color
 
 ```java
-
     /* Show color picker dialog */
     cp.show();
     
