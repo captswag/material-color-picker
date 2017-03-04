@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".ColorPicker">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              tools:context=".ColorPicker">
 
     <View
         android:id="@+id/colorView"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -23,95 +23,52 @@
         android:paddingRight="@dimen/materialcolorpicker__activity_horizontal_margin"
         android:paddingTop="@dimen/materialcolorpicker__activity_vertical_margin">
 
-        <TextView
-            android:id="@+id/alphaToolTip"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/materialcolorpicker__black"
-            android:textSize="18sp"/>
-
-        <SeekBar
+        <com.pes.androidmaterialcolorpickerdialog.MaterialColorPickerTextSeekBar
             android:id="@+id/alphaSeekBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/alphaToolTip"
             android:max="255"
             android:maxHeight="3dip"
             android:minHeight="3dip"
             android:progressDrawable="@drawable/materialcolorpicker__alpha_progress"
+            android:textColor="@android:color/black"
             android:thumb="@drawable/materialcolorpicker__red_thumb_drawable"/>
 
-        <TextView
-            android:id="@+id/redToolTip"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/alphaSeekBar"
-            android:fontFamily="sans-serif-medium"
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/materialcolorpicker__red"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <SeekBar
+        <com.pes.androidmaterialcolorpickerdialog.MaterialColorPickerTextSeekBar
             android:id="@+id/redSeekBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/redToolTip"
+            android:layout_below="@id/alphaSeekBar"
             android:max="255"
             android:maxHeight="3dip"
             android:minHeight="3dip"
             android:progressDrawable="@drawable/materialcolorpicker__red_progress"
-            android:thumb="@drawable/materialcolorpicker__red_thumb_drawable" />
+            android:textColor="@android:color/holo_red_light"
+            android:thumb="@drawable/materialcolorpicker__red_thumb_drawable"/>
 
-        <TextView
-            android:id="@+id/greenToolTip"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/redSeekBar"
-            android:fontFamily="sans-serif-medium"
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/materialcolorpicker__green"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <SeekBar
+        <com.pes.androidmaterialcolorpickerdialog.MaterialColorPickerTextSeekBar
             android:id="@+id/greenSeekBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/greenToolTip"
+            android:layout_below="@id/redSeekBar"
             android:max="255"
             android:maxHeight="3dip"
             android:minHeight="3dip"
             android:progressDrawable="@drawable/materialcolorpicker__green_progress"
-            android:thumb="@drawable/materialcolorpicker__green_thumb_drawable" />
+            android:textColor="@android:color/holo_green_light"
+            android:thumb="@drawable/materialcolorpicker__green_thumb_drawable"/>
 
-        <TextView
-            android:id="@+id/blueToolTip"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/greenSeekBar"
-            android:fontFamily="sans-serif-medium"
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/materialcolorpicker__blue"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <SeekBar
+        <com.pes.androidmaterialcolorpickerdialog.MaterialColorPickerTextSeekBar
             android:id="@+id/blueSeekBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/blueToolTip"
+            android:layout_below="@id/greenSeekBar"
             android:max="255"
             android:maxHeight="3dip"
             android:minHeight="3dip"
             android:progressDrawable="@drawable/materialcolorpicker__blue_progress"
-            android:thumb="@drawable/materialcolorpicker__blue_thumb_drawable" />
+            android:textColor="@android:color/holo_blue_light"
+            android:thumb="@drawable/materialcolorpicker__blue_thumb_drawable"/>
 
         <TextView
             android:id="@+id/textView"
@@ -126,10 +83,11 @@
             android:layout_marginRight="4dp"
             android:labelFor="@id/hexCode"
             android:text="@string/materialcolorpicker__hash"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/hexCode"
+            style="@style/Widget.AppCompat.EditText"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_alignParentBottom="true"
@@ -138,7 +96,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:imeOptions="actionDone|actionGo|actionSend"
-            android:inputType="textCapCharacters"
+            android:inputType="textCapCharacters|textNoSuggestions"
             android:lines="1"
             android:maxLines="1"
             android:paddingEnd="4dp"
@@ -147,7 +105,7 @@
             android:textColor="@android:color/primary_text_light"
             android:textColorHint="@android:color/primary_text_light"
             android:textSize="18sp"
-            tools:text="123456" />
+            tools:text="123456"/>
 
         <Button
             android:id="@+id/okColorButton"
@@ -158,7 +116,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:clickable="true"
-            android:text="@string/materialcolorpicker__btnSelectColor" />
+            android:text="@string/materialcolorpicker__btnSelectColor"/>
 
     </RelativeLayout>
 

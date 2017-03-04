@@ -1,6 +1,5 @@
 package com.pes.androidmaterialcolorpickerdialog;
 
-import android.annotation.SuppressLint;
 import android.support.annotation.IntRange;
 
 final class ColorFormatHelper {
@@ -13,17 +12,6 @@ final class ColorFormatHelper {
      */
     static int assertColorValueInRange(@IntRange(from = 0, to = 255) int colorValue) {
         return ((0 <= colorValue) && (colorValue <= 255)) ? colorValue : 0;
-    }
-
-    /**
-     * Left-pads the specified color value with 0 to 2 spaces, depending on the color value length
-     *
-     * @param colorValue Color value
-     * @return Left-padded (with Strings) color value as a String
-     */
-    @SuppressLint("DefaultLocale")
-    static String leftPadColorValue(@IntRange(from = 0, to = 255) int colorValue) {
-        return String.format("%3d", colorValue);
     }
 
     /**
@@ -72,6 +60,5 @@ final class ColorFormatHelper {
                 assertColorValueInRange(blue)
         );
     }
-
 
 }

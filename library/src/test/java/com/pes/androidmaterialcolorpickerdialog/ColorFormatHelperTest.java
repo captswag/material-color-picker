@@ -4,7 +4,6 @@ import junit.framework.TestCase;
 
 import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.assertColorValueInRange;
 import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.formatColorValues;
-import static com.pes.androidmaterialcolorpickerdialog.ColorFormatHelper.leftPadColorValue;
 
 /**
  * Test cases for the {@link ColorFormatHelper} class
@@ -29,13 +28,6 @@ public class ColorFormatHelperTest extends TestCase {
         assertEquals(0, assertColorValueInRange(Integer.MIN_VALUE));
         assertEquals(0, assertColorValueInRange(256));
         assertEquals(0, assertColorValueInRange(1024));
-    }
-
-    public void testLeftPadColorValue() throws Exception {
-        assertEquals("  0", leftPadColorValue(0));
-        assertEquals("  1", leftPadColorValue(1));
-        assertEquals(" 10", leftPadColorValue(10));
-        assertEquals("100", leftPadColorValue(100));
     }
 
     public void testFormatColorValues_RgbValues() throws Exception {
