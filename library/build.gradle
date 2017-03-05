@@ -12,8 +12,8 @@ android {
 
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 6
-        versionName "1.0.5"
+        versionCode 7
+        versionName "1.1.0"
     }
     buildTypes {
         release {
@@ -27,7 +27,7 @@ def siteUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'   
 def gitUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'        // Git repository URL
 group = "com.pes.materialcolorpicker"                                               // Maven Group ID for the artifact
 // This is the library version used when deploying the artifact
-version = "1.0.5"
+version = "1.1.0"
 
 install {
     repositories.mavenInstaller {
@@ -84,7 +84,7 @@ task javadoc(type: Javadoc) {
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
-    from javadoc.destinationDir
+    from javadoc.getDestinationDir()
 
 }
 artifacts {

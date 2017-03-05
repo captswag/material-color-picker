@@ -1,6 +1,5 @@
 package com.pes.androidmaterialcolorpickerdialog;
 
-import android.annotation.SuppressLint;
 import android.support.annotation.IntRange;
 
 final class ColorFormatHelper {
@@ -16,17 +15,6 @@ final class ColorFormatHelper {
     }
 
     /**
-     * Left-pads the specified color value with 0 to 2 spaces, depending on the color value length
-     *
-     * @param colorValue Color value
-     * @return Left-padded (with Strings) color value as a String
-     */
-    @SuppressLint("DefaultLocale")
-    static String leftPadColorValue(@IntRange(from = 0, to = 255) int colorValue) {
-        return String.format("%3d", colorValue);
-    }
-
-    /**
      * Formats individual RGB values to be output as a HEX string.
      * <p>
      * Beware: If color value is lower than 0 or higher than 255, it's reset to 0.
@@ -36,12 +24,38 @@ final class ColorFormatHelper {
      * @param blue  Blue color value
      * @return HEX String containing the three values
      */
-    static String formatRgbColorValues(
+    static String formatColorValues(
             @IntRange(from = 0, to = 255) int red,
             @IntRange(from = 0, to = 255) int green,
             @IntRange(from = 0, to = 255) int blue) {
 
         return String.format("%02X%02X%02X",
+                assertColorValueInRange(red),
+                assertColorValueInRange(green),
+                assertColorValueInRange(blue)
+        );
+    }
+
+    /**
+     * Formats individual ARGB values to be output as an 8 character HEX string.
+     * <p>
+     * Beware: If any value is lower than 0 or higher than 255, it's reset to 0.
+     *
+     * @param alpha Alpha value
+     * @param red   Red color value
+     * @param green Green color value
+     * @param blue  Blue color value
+     * @return HEX String containing the three values
+     * @since v1.1.0
+     */
+    static String formatColorValues(
+            @IntRange(from = 0, to = 255) int alpha,
+            @IntRange(from = 0, to = 255) int red,
+            @IntRange(from = 0, to = 255) int green,
+            @IntRange(from = 0, to = 255) int blue) {
+
+        return String.format("%02X%02X%02X%02X",
+                assertColorValueInRange(alpha),
                 assertColorValueInRange(red),
                 assertColorValueInRange(green),
                 assertColorValueInRange(blue)
