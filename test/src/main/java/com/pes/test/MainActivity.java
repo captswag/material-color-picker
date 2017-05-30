@@ -42,7 +42,10 @@ public class MainActivity extends Activity implements ColorPickerCallback {
         colorPicker.setCallback(new ColorPickerCallback() {
             @Override
             public void onColorChosen(@ColorInt int color) {
-                // Do whatever you want
+                Log.d("Alpha", Integer.toString(Color.alpha(color)));
+                Log.d("Red", Integer.toString(Color.red(color)));
+                Log.d("Green", Integer.toString(Color.green(color)));
+                Log.d("Blue", Integer.toString(Color.blue(color)));
             }
         });
 

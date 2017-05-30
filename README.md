@@ -39,7 +39,7 @@ dependency in your `build.gradle`.
 (module)
 ```groovy    
     dependencies {
-        compile 'com.pes.materialcolorpicker:library:1.1.+'
+        compile 'com.pes.materialcolorpicker:library:1.2.0'
     }
 ```
 
@@ -83,6 +83,10 @@ Then show the dialog (when and where you want) and save the selected color
 ```
 
 That's all :)
+
+### Transition from v1.1 to v1.2
+
+The deprecated callback has been removed. See *Transition from v1.0 to v1.1*.
 
 ### Transition from v1.0 to v1.1
 
