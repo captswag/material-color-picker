@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="materialcolorpicker__descLib">Material Color Dialogo de Selector</string>
+    <string name="materialcolorpicker__app_name">Android Material Selector de color</string>
+    <string name="materialcolorpicker__btnSelectColor">Selecciona</string>
+    <string name="materialcolorpicker__errHex">Formato de código hexadecimal incorrecto</string>
+    <string name="materialcolorpicker__inputColor">Color:</string>
+</resources>
