@@ -46,6 +46,10 @@ public class MainActivity extends Activity implements ColorPickerCallback {
                 Log.d("Red", Integer.toString(Color.red(color)));
                 Log.d("Green", Integer.toString(Color.green(color)));
                 Log.d("Blue", Integer.toString(Color.blue(color)));
+
+                Log.d("Pure Hex", Integer.toHexString(color));
+                Log.d("#Hex no alpha", String.format("#%06X", (0xFFFFFF & color)));
+                Log.d("#Hex with alpha", String.format("#%08X", (0xFFFFFFFF & color)));
             }
         });
 

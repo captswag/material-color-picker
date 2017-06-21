@@ -10,7 +10,7 @@ Features
 - Separate UI for portrait and landscape devices
 - Support for pre-lollipop devices
 
-Design inspired from [Dribbble](https://dribbble.com/shots/1858968-Material-Design-colorpicker?list=following&offset=4) by [Lucas Bonomi](http://lucasbonomi.com/)
+Design inspired from [Dribbble](https://dribbble.com/shots/1858968-Material-Design-colorpicker) by Lucas Bonomi
 
 Portrait
 
@@ -78,6 +78,15 @@ Then show the dialog (when and where you want) and save the selected color
         @Override
         public void onColorChosen(@ColorInt int color) {
             // Do whatever you want
+			// Examples
+			Log.d("Alpha", Integer.toString(Color.alpha(color)));
+			Log.d("Red", Integer.toString(Color.red(color)));
+			Log.d("Green", Integer.toString(Color.green(color)));
+			Log.d("Blue", Integer.toString(Color.blue(color)));
+
+			Log.d("Pure Hex", Integer.toHexString(color));
+			Log.d("#Hex no alpha", String.format("#%06X", (0xFFFFFF & color)));
+			Log.d("#Hex with alpha", String.format("#%08X", (0xFFFFFFFF & color)));
         }
     });
 ```
@@ -123,7 +132,11 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 ## Contributors
 
-Special thanks to [Patrick Geselbracht](https://github.com/PattaFeuFeu)
+Author: [Simone Pessotto](https://www.simonepessotto.it)
+
+### Special thanks to :
+
+[Patrick Geselbracht](https://github.com/PattaFeuFeu)
 
 ## LICENSE
 
