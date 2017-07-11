@@ -1,0 +1,7 @@
+<resources>
+    <string name="materialcolorpicker__app_name">안드로이드 Material 색 선택 다이얼로그</string>
+    <string name="materialcolorpicker__descLib">Material Color Picker Dialog</string>
+    <string name="materialcolorpicker__errHex">Hex코드 형식 불일치</string>
+    <string name="materialcolorpicker__inputColor">색상: </string>
+    <string name="materialcolorpicker__btnSelectColor">선택</string>
+</resources>
