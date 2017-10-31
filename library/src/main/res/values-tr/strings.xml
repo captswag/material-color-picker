@@ -1,0 +1,8 @@
+<resources>
+    <string name="materialcolorpicker__app_name">Materyal Renk Seçimi Diyaloğu</string>
+
+    <string name="materialcolorpicker__descLib">Renk Seçimi İletişim Kutusu</string>
+    <string name="materialcolorpicker__errHex" >Yanlış HEX Biçimi</string>
+    <string name="materialcolorpicker__inputColor">Renk: </string>
+    <string name="materialcolorpicker__btnSelectColor">Seç</string>
+</resources>
