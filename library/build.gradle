@@ -5,15 +5,15 @@ apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '26.0.2'
     resourcePrefix "materialcolorpicker__"
 
     defaultConfig {
 
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 9
-        versionName "1.2.1"
+        versionCode 10
+        versionName "1.2.2"
     }
     buildTypes {
         release {
@@ -27,7 +27,7 @@ def siteUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'   
 def gitUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'        // Git repository URL
 group = "com.pes.materialcolorpicker"                                               // Maven Group ID for the artifact
 // This is the library version used when deploying the artifact
-version = "1.2.1"
+version = "1.2.2"
 
 install {
     repositories.mavenInstaller {
