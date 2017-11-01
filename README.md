@@ -114,6 +114,7 @@ The old interface is still in the library but will be removed in the next versio
 * Iranian
 * Persian
 * Korean
+* Turkish
 
 If you would like to help localise this library please fork the project, create and verify your language files, add the language to the README then create a pull request.
 
