@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.text.InputFilter;
 import android.view.KeyEvent;
@@ -133,7 +134,6 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         setContentView(R.layout.materialcolorpicker__layout_color_picker);
 
         colorView = findViewById(R.id.colorView);
-        colorView.setBackgroundColor(getColor());
 
         hexCode = (EditText) findViewById(R.id.hexCode);
 
@@ -147,21 +147,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         greenSeekBar.setOnSeekBarChangeListener(this);
         blueSeekBar.setOnSeekBarChangeListener(this);
 
-        alphaSeekBar.setProgress(alpha);
-        redSeekBar.setProgress(red);
-        greenSeekBar.setProgress(green);
-        blueSeekBar.setProgress(blue);
-
-        if (!withAlpha) {
-            alphaSeekBar.setVisibility(View.GONE);
-        }
-
         hexCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(withAlpha ? 8 : 6)});
-
-        hexCode.setText(withAlpha
-                ? formatColorValues(alpha, red, green, blue)
-                : formatColorValues(red, green, blue)
-        );
 
         hexCode.setOnEditorActionListener(
                 new EditText.OnEditorActionListener() {
@@ -191,9 +177,34 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         });
     }
 
+    private void initUi() {
+        colorView.setBackgroundColor(getColor());
+
+        alphaSeekBar.setProgress(alpha);
+        redSeekBar.setProgress(red);
+        greenSeekBar.setProgress(green);
+        blueSeekBar.setProgress(blue);
+
+        if (!withAlpha) {
+            alphaSeekBar.setVisibility(View.GONE);
+        }
+
+        hexCode.setText(withAlpha
+                ? formatColorValues(alpha, red, green, blue)
+                : formatColorValues(red, green, blue)
+        );
+    }
+
     private void sendColor() {
         if (callback != null)
             callback.onColorChosen(getColor());
+    }
+
+    public void setColor(@ColorInt int color) {
+        alpha = Color.alpha(color);
+        red = Color.red(color);
+        green = Color.green(color);
+        blue = Color.blue(color);
     }
 
     /**
@@ -317,5 +328,11 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      */
     public int getColor() {
         return withAlpha ? Color.argb(alpha, red, green, blue) : Color.rgb(red, green, blue);
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        initUi();
     }
 }
