@@ -27,7 +27,7 @@ def siteUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'   
 def gitUrl = 'https://github.com/Pes8/android-material-color-picker-dialog/'        // Git repository URL
 group = "com.pes.materialcolorpicker"                                               // Maven Group ID for the artifact
 // This is the library version used when deploying the artifact
-version = "1.2.2"
+version = "1.2.3"
 
 install {
     repositories.mavenInstaller {
