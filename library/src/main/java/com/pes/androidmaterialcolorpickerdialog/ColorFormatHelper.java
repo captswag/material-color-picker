@@ -16,7 +16,7 @@ final class ColorFormatHelper {
 
     /**
      * Formats individual RGB values to be output as a HEX string.
-     * <p>
+     *
      * Beware: If color value is lower than 0 or higher than 255, it's reset to 0.
      *
      * @param red   Red color value
@@ -38,7 +38,7 @@ final class ColorFormatHelper {
 
     /**
      * Formats individual ARGB values to be output as an 8 character HEX string.
-     * <p>
+     *
      * Beware: If any value is lower than 0 or higher than 255, it's reset to 0.
      *
      * @param alpha Alpha value

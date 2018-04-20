@@ -73,6 +73,8 @@ Then show the dialog (when and where you want) and save the selected color
     /* Show color picker dialog */
     cp.show();
     
+	cp.enableAutoClose(); // Enable auto-dismiss for the dialog
+	
     /* Set a new Listener called when user click "select" */
     cp.setCallback(new ColorPickerCallback() {
         @Override
@@ -87,6 +89,9 @@ Then show the dialog (when and where you want) and save the selected color
 	    Log.d("Pure Hex", Integer.toHexString(color));
 	    Log.d("#Hex no alpha", String.format("#%06X", (0xFFFFFF & color)));
 	    Log.d("#Hex with alpha", String.format("#%08X", (0xFFFFFFFF & color)));
+		
+		// If the auto-dismiss option is not enable (disabled as default) you have to manually dimiss the dialog
+		// cp.dismiss();
         }
     });
 ```

@@ -39,6 +39,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     private ColorPickerCallback callback;
 
     private boolean withAlpha;
+    private boolean autoclose;
 
     /**
      * Creator of the class. It will initialize the class with black color as default
@@ -60,6 +61,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         this.blue = 0;
 
         this.withAlpha = false;
+        this.autoclose = false;
     }
 
     /**
@@ -69,7 +71,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      * @param red      Red color for RGB values (0 - 255)
      * @param green    Green color for RGB values (0 - 255)
      * @param blue     Blue color for RGB values (0 - 255)
-     *                 <p>
+     *
      *                 If the value of the colors it's not in the right range (0 - 255) it will
      *                 be place at 0.
      */
@@ -82,7 +84,6 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         this.red = assertColorValueInRange(red);
         this.green = assertColorValueInRange(green);
         this.blue = assertColorValueInRange(blue);
-
     }
 
     /**
@@ -93,7 +94,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
      * @param red      Red color for RGB values (0 - 255)
      * @param green    Green color for RGB values (0 - 255)
      * @param blue     Blue color for RGB values (0 - 255)
-     *                 <p>
+     *
      *                 If the value of the colors it's not in the right range (0 - 255) it will
      *                 be place at 0.
      * @since v1.1.0
@@ -111,7 +112,20 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         this.blue = assertColorValueInRange(blue);
 
         this.withAlpha = true;
+    }
 
+    /**
+     * Enable auto-dismiss for the dialog
+     */
+    public void enableAutoClose(){
+        this.autoclose = true;
+    }
+
+    /**
+     * Disable auto-dismiss for the dialog
+     */
+    public void disableAutoClose(){
+        this.autoclose = false;
     }
 
     public void setCallback(ColorPickerCallback listener) {
@@ -198,6 +212,9 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     private void sendColor() {
         if (callback != null)
             callback.onColorChosen(getColor());
+        if(autoclose){
+            dismiss();
+        }
     }
 
     public void setColor(@ColorInt int color) {
@@ -317,7 +334,7 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
 
     /**
      * Getter for the color as Android Color class value.
-     * <p>
+     *
      * From Android Reference: The Color class defines methods for creating and converting color
      * ints.
      * Colors are represented as packed ints, made up of 4 bytes: alpha, red, green, blue.

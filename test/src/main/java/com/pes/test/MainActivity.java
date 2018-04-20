@@ -35,6 +35,8 @@ public class MainActivity extends Activity implements ColorPickerCallback {
             }
         });
 
+        colorPicker.enableAutoClose();
+
         /* One way to get values from the Color Picker is to implement the Callback as an
         anonymous inner class. The setCallback method may also be used with "this" if the class
         implements the Callback (see below).
