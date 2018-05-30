@@ -1,0 +1,9 @@
+<resources>
+    <string name="materialcolorpicker__app_name">Paleta kolorów dla Androida</string>
+
+    <string name="materialcolorpicker__descLib">Paleta kolorów Material Design</string>
+    <string name="materialcolorpicker__errHex">Notacja Hex nie jest poprawna</string>
+    <string name="materialcolorpicker__inputColor">Kolor: </string>
+    <string name="materialcolorpicker__btnSelectColor">Wybierz</string>
+    <string name="materialcolorpicker__hash" translatable="false">#</string>
+</resources>
