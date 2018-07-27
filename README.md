@@ -39,7 +39,7 @@ dependency in your `build.gradle`.
 (module)
 ```groovy    
     dependencies {
-        compile 'com.pes.materialcolorpicker:library:1.2.0'
+        compile 'com.pes.materialcolorpicker:library:1.2.4'
     }
 ```
 
