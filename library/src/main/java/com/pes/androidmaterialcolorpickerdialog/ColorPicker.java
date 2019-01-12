@@ -332,6 +332,43 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
         return blue;
     }
 
+    ////
+    // Erlend: Added setters.
+    ////
+
+    public void setAlpha(int alpha) {
+        this.alpha = alpha;
+    }
+
+    public void setRed(int red) {
+        this.red = red;
+    }
+
+    public void setGreen(int green) {
+        this.green = green;
+    }
+
+    public void setBlue(int blue) {
+        this.blue = blue;
+    }
+
+    public void setAll(int alpha, int red, int green, int blue) {
+        this.alpha = alpha;
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+
+    public void setColors(int red, int green, int blue) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+
+    ////
+    //
+    ////
+
     /**
      * Getter for the color as Android Color class value.
      *
