@@ -55,6 +55,8 @@ public class MainActivity extends Activity implements ColorPickerCallback {
             }
         });
 
+
+        colorPicker.setAll(202,127,45,99);
     }
 
     /**
