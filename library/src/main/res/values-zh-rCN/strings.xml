@@ -1,0 +1,8 @@
+<resources>
+    <string name="materialcolorpicker__app_name">安卓Material风格颜色选择器</string>
+
+    <string name="materialcolorpicker__descLib">Material风格颜色选择器</string>
+    <string name="materialcolorpicker__errHex">十六进制颜色码无效</string>
+    <string name="materialcolorpicker__inputColor">颜色: </string>
+    <string name="materialcolorpicker__btnSelectColor">选择</string>
+</resources>
