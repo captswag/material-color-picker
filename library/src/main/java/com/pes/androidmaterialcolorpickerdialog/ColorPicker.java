@@ -87,10 +87,11 @@ public class ColorPicker extends Dialog implements SeekBar.OnSeekBarChangeListen
     }
     
     /**
-     * Creator of the class. It will initialize the class with the rgb color passed as default
+     * Creator of the class. It will initialize the class with the argb color passed as default
      *
      * @param activity The reference to the activity where the color picker is called
      * @param color ARGB color
+     */
     public ColorPicker(Activity activity,
                        @ColorInt int color) {
         this(activity);
